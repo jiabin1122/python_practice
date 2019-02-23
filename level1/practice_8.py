@@ -1,23 +1,23 @@
 """
-华为机试 9/108
-提取不重复整数
-输入一个int型整数，按照从右向左的阅读顺序
-返回一个不含重复数字的新整数
+8.合并表记录
+数据表记录包含表索引和数值，请对表索引相同的值进行合并，即相同的索引的数值进行求和运算
+输出按照key值升序进行输出
 """
 
-def new_num(num):
-    list_result = []
-    [list_result.append(num[len(num)-i-1]) for i in range(len(num)) if num[len(num)-i-1] not in list_result ]
-    print(list_result)
-    print(''.join(list_result))
+list_demo = [('b',2),('a',3),('a',1)]
 
-def new_num1(num):
-    list_result = []
-    num = list(num)
-    num.reverse()
-    [list_result.append(num[i]) for i in range(len(num)) if num[i] not in list_result ]
-    print(''.join(list_result))
+num0 = list_demo[0][0]
+dict_temp = {num0:0}
+dict_result = {}
 
-if __name__ == '__main__':
-    num = input('please input num...')
-    new_num1(num)
+for item in list_demo:
+    if item[0] in dict_temp:
+        dict_temp.update({item[0] : dict_temp[item[0]] + item[1]})
+    else:
+        dict_temp.update({item[0]: item[1]})
+
+keys = list(dict_temp.keys())
+keys.sort()
+for item in keys:
+    dict_result.update({item : dict_temp[item]})
+print(dict_result)

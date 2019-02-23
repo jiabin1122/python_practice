@@ -1,6 +1,22 @@
 """
-华为机试 10/108
-字符个数统计
-计算字符串中含有不同字符的个数
-字符在ACSII码范围内（0～127），不在范围内的不做统计
+9.提取不重复整数
+输入一个int型整数，按照从右向左的阅读顺序
+返回一个不含重复数字的新整数
 """
+
+def new_num(num):
+    list_result = []
+    [list_result.append(num[len(num)-i-1]) for i in range(len(num)) if num[len(num)-i-1] not in list_result ]
+    print(list_result)
+    print(''.join(list_result))
+
+def new_num1(num):
+    list_result = []
+    num = list(num)
+    num.reverse()
+    [list_result.append(num[i]) for i in range(len(num)) if num[i] not in list_result ]
+    print(''.join(list_result))
+
+if __name__ == '__main__':
+    num = input('please input num...')
+    new_num1(num)

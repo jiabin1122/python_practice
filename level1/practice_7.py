@@ -1,24 +1,17 @@
 """
-华为机试 8/108
-合并表记录
-数据表记录包含表索引和数值，请对表索引相同的值进行合并，即相同的索引的数值进行求和运算
-输出按照key值升序进行输出
+7.取近似值
+接受一个正浮点数
+输出该数值的近似整数值
+如果小数点后数值大于等于5，向上取整；小于5，则向下取整
 """
-list_demo = [('b',2),('a',3),('a',1)]
 
-num0 = list_demo[0][0]
-dict_temp = {num0:0}
-dict_result = {}
-
-for item in list_demo:
-    if item[0] in dict_temp:
-        dict_temp.update({item[0] : dict_temp[item[0]] + item[1]})
+def print_num(num):
+    k,f = num.split('.')
+    if int(f[0]) >= 5:
+        return int(k) + 1
     else:
-        dict_temp.update({item[0]: item[1]})
+        return int(k)
 
-keys = list(dict_temp.keys())
-keys.sort()
-for item in keys:
-    dict_result.update({item : dict_temp[item]})
-print(dict_result)
-
+if __name__ == '__main__':
+    num = input('please input float...')
+    print(print_num(num))

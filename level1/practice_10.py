@@ -1,22 +1,5 @@
 """
-华为机试 11/108
-数字颠倒
-输入一个整数，将这个整数以字符串的形式逆序输出
-程序不考虑负数的情况，若数字含有0，则逆序形式也含有0，如输入为100，则输出为001
+10.字符个数统计
+计算字符串中含有不同字符的个数
+字符在ACSII码范围内（0～127），不在范围内的不做统计
 """
-
-def reverse_digit(num):
-    if int(num) < 0:
-        return -1
-    else:
-        result = list(num)
-        result.reverse()
-        return ''.join(result)
-
-if __name__ == '__main__':
-    num = input('please input num...')
-    flag = reverse_digit(num)
-    if flag == -1:
-        print('数字不能为负数')
-    else:
-        print(flag)

@@ -1,6 +1,21 @@
 """
-华为机试 11/108
-数字颠倒
+11.数字颠倒
 输入一个整数，将这个整数以字符串的形式逆序输出
 程序不考虑负数的情况，若数字含有0，则逆序形式也含有0，如输入为100，则输出为001
 """
+
+def reverse_digit(num):
+    if int(num) < 0:
+        return -1
+    else:
+        result = list(num)
+        result.reverse()
+        return ''.join(result)
+
+if __name__ == '__main__':
+    num = input('please input num...')
+    flag = reverse_digit(num)
+    if flag == -1:
+        print('数字不能为负数')
+    else:
+        print(flag)
